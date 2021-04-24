@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App 🌤</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+
+    <script src="https://kit.fontawesome.com/be32ba39b9.js" crossorigin="anonymous"></script> 
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="src/style.css"> 
+
+</head>
+<body>
+
+<div class="card" class="container">
+
+    <div class="search" class="row">
+        <form id="search-form">
+            <input 
+                id="search-box" 
+                type="text" 
+                placeholder="Enter a city" 
+                class="col-md-auto shadow border-0" 
+                autofocus="on"
+                />
+            <input 
+                id="search-button" 
+                type="submit" 
+                value="Search" 
+                class="col-md-auto shadow border-0" />
+            <button
+                id="current-button" 
+                class="col-md-auto shadow border-0"
+                >
+                📍
+            </button>
+        </form>
+    </div>
+
+    <div class="row">
+        <div class="col-7">
+            <h1 id="location">
+                Vancouver
+            </h1>
+            <h2 id="current-date">
+                Monday March 22, 2021
+            </h2>
+            <h2 id="current-time">
+                6:00 am
+            </h2>
+
+            <br/><br /><br />
+            <div class="row">
+                <div class="col-5">
+                    <i id="current-weather-icon" class="fas fa-cloud-sun"></i>
+                </div>
+                    <div class="col-6">
+                        <p id="current-weather-degrees">
+                            <span>
+                                <strong id="current-degrees">10</strong>
+                                <small id="units">
+                                    <a id="c-temp">ᵒC</a>
+                                     | 
+                                    <a id="f-temp">ᵒF</a>
+                                </small>
+                            </span>
+                        </p>
+                        <p id="current-weather-description">
+                            Partly Cloudy
+                        </p>
+                    </div>
+                    <br/><br/><br/><br /><br/><br/><br /><br />
+                <div class="hourly-forecast-all">
+                    <h3 class="hourly-forecast-header">
+                        Hourly Forecast
+                    </h3>
+
+                    <div class="hourly-icons">
+                        <div class="row">
+                            <div class="col-sm">
+                                <i class="fas fa-cloud"></i>
+                                <br /> 9:00am
+                                <br /> 3ᵒ
+                            </div>
+                            <div class="col-sm">
+                                <i class="fas fa-cloud"></i>
+                                <br /> 12:00pm
+                                <br /> 6ᵒ
+                            </div>
+                            <div class="col-sm">
+                                <i class="fas fa-cloud"></i>
+                                <br /> 3:00pm
+                                <br /> 10ᵒ
+                            </div>
+                            <div class="col-sm">
+                                <i class="fas fa-cloud-sun-rain"></i>
+                                <br /> 6:00pm
+                                <br /> 7ᵒ
+                            </div>
+                            <div class="col-sm">
+                                <i class="fas fa-cloud-sun-rain"></i>
+                                <br /> 9:00pm
+                                <br /> 5ᵒ
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <h3>
+                5 Day Forecast
+            </h3>
+            <div class="five-day-forecast-data">
+                <ul>
+                    <li class="card">
+                        Tuesday
+                        <i class="fas fa-sun"></i>
+                        10ᵒ / 3ᵒ
+                    </li>
+                    <li class="card">
+                        Wednesday
+                        <i class="fas fa-cloud"></i>
+                        8ᵒ / 4ᵒ
+                    </li>
+                    <li class="card">
+                        Thursday
+                        <i class="fas fa-cloud-sun-rain"></i>
+                        11ᵒ /3ᵒ
+                    </li>
+                    <li class="card">
+                        Friday </br>
+                        <i class="fas fa-cloud-showers-heavy"></i>
+                        11ᵒ /4ᵒ
+                    </li>
+                    <li class="card">
+                        Saturday <br />
+                        <i class="fas fa-cloud-sun"></i>
+                        12ᵒ / 4ᵒ
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="src/script.js"></script>
+</body>
+</html>

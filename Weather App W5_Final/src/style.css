@@ -1,0 +1,93 @@
+.card {
+  margin: 5% 15%;
+  color: #18cfcf;
+  font-family: "Righteous", cursive;
+  max-width: 900px;
+  border-radius: 10px;
+}
+
+div.card {
+  background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+}
+
+#search-form {
+  padding: 30px;
+}
+
+#search-box {
+  border-color: #ffc478;
+  border-radius: 5%;
+}
+
+#search-button {
+  background-color: #ffc478;
+  color: white;
+  border: #f0e5d8;
+  border-radius: 5%;
+}
+
+#current-button {
+  background-color: #ffc478;
+  color: white;
+  border: #f0e5d8;
+  border-radius: 5%;
+}
+
+#location {
+  padding: 0 50px;
+  font-size: 60px;
+}
+
+#current-date {
+  font-size: 20px;
+  padding: 0 50px;
+}
+
+#current-time {
+  font-size: 20px;
+  padding: 0 50px;
+}
+
+#current-weather-icon {
+  font-size: 100px;
+  padding: 0 70px;
+}
+
+#current-weather-degrees {
+  font-size: 40px;
+  padding: 0 0 0 30px;
+}
+
+#current-weather-description {
+  font-size: 25px;
+  padding: 0 0 0 30px;
+}
+
+.hourly-icons {
+  padding: 15px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li.card {
+  margin: 30px 0;
+  padding: 3px;
+  text-align: center;
+  background-color: #f0e5d8;
+}
+
+.hourly-forecast-all {
+  text-align: center;
+  padding: 0 0 0 50px;
+}
+
+.hourly-forecast-header {
+  text-align: left;
+}
+
+i {
+  font-size: 25px;
+}
