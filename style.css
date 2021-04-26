@@ -91,3 +91,7 @@ li.card {
 i {
   font-size: 25px;
 }
+
+#github-link {
+  box-sizing: border-box;
+}
