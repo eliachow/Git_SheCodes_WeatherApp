@@ -38,7 +38,7 @@ function displayWeatherCondition(response) {
     response.data.main.humidity
   
   document.querySelector("#wind-speed").innerHTML = 
-    response.data.wind.speed
+    Math.round(response.data.wind.speed);
 }
 
 function searchCity(city) {
