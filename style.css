@@ -34,11 +34,19 @@ div.card {
   border-radius: 5%;
 }
 
+#search-button:hover {
+  background-color: #18cfcf;
+}
+
 #current-button {
   background-color: #ffc478;
   color: white;
   border: #f0e5d8;
   border-radius: 5%;
+}
+
+#current-button:hover {
+  background-color: #18cfcf;
 }
 
 #location {
