@@ -79,6 +79,16 @@ div.card {
   padding: 0 0 0 30px;
 }
 
+#c-temp:hover {
+  cursor: pointer;
+  color: white;
+}
+
+#f-temp:hover {
+  cursor: pointer;
+  color: white;
+}
+
 #humidity {
   font-size: 20px;
   padding: 0 0 0 30px;
