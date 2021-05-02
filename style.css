@@ -59,17 +59,17 @@ div.card {
 }
 
 #current-weather-description {
-  font-size: 25px;
+  font-size: 20px;
   padding: 0 0 0 30px;
 }
 
 #precipitation {
-  font-size: 25px;
+  font-size: 20px;
   padding: 0 0 0 30px;
 }
 
 #wind-speed  {
-  font-size: 25px;
+  font-size: 20px;
   padding: 0 0 0 30px;
 }
 
@@ -99,7 +99,7 @@ li.card {
 }
 
 i {
-  font-size: 25px;
+ 20 font-size: px;
 }
 
 #github-link {
