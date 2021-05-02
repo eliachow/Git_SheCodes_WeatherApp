@@ -20,11 +20,15 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
 //Change city
 function displayWeatherCondition(response) {
   document.querySelector("#location").innerHTML = response.data.name;
+  
   document.querySelector("#current-degrees").innerHTML = Math.round(
     response.data.main.temp
   );
   document.querySelector("#current-weather-description").innerHTML =
     response.data.weather[0].main;
+  
+    document.querySelector("#wind-speed").innerHTML = 
+    response.data.wind.speed
 }
 
 function searchCity(city) {
