@@ -21,6 +21,9 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
 function displayWeatherCondition(response) {
   document.querySelector("#location").innerHTML = response.data.name;
   
+  document.querySelector("#current-weather-icon").iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+ console.log(response.data.weather[0].icon);
+
   document.querySelector("#current-degrees").innerHTML = Math.round(
     response.data.main.temp
   );
