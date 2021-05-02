@@ -51,6 +51,9 @@ function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#search-box").value;
   searchCity(city);
+  
+
+
 }
 
 let searchForm = document.querySelector("#search-form");
@@ -133,3 +136,30 @@ fTemp.addEventListener("click", convertToF);
 
 let cTemp = document.querySelector("#c-temp");
 cTemp.addEventListener("click", convertToC);
+
+
+//5 day forecast
+searchCity("Vancouver");
+displayForecast();
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#five-day-forecast-data");
+
+  let forecastHTML = "";
+  let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+  days.forEach(function(day) {
+    forecastHTML =  forecastHTML + 
+    `
+               <ul>
+                    <li class="card">
+                        ${day}
+                        <i class="fas fa-sun"></i>
+                        10ᵒ / 3ᵒ
+                    </li>
+                </ul>
+            `;
+  forecastElement.innerHTML = forecastHTML;
+  })
+  
+}
+
