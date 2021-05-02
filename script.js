@@ -26,8 +26,10 @@ function displayWeatherCondition(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
 
+  celciusTemperature = Math.round(response.data.main.temp);
+
   document.querySelector("#current-degrees").innerHTML = Math.round(
-    response.data.main.temp
+    celciusTemperature
   );
   document.querySelector("#current-weather-description").innerHTML =
     response.data.weather[0].main;
@@ -89,7 +91,6 @@ let nowDayNumber = dateAndTime.getDate();
 let nowYear = dateAndTime.getFullYear();
 
 let currentDate = document.querySelector("#current-date");
-console.log(currentDate);
 currentDate.innerHTML = `${nowDay} ${nowMonth} ${nowDayNumber}, ${nowYear}`;
 
 
@@ -105,7 +106,6 @@ if (currentMinute < 10) {
 }
 
 let currentTime = document.querySelector("#current-time");
-console.log(currentTime);
 currentTime.innerHTML = `${currentHour}:${currentMinute}`;
 
 
@@ -116,14 +116,16 @@ function convertToF(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#current-degrees");
   let currentDegree = temperatureElement.innerHTML;
-  temperatureElement.innerHTML = Math.round((currentDegree * 9) / 5 + 32);
+  temperatureElement.innerHTML = Math.round((celciusTemperature * 9) / 5 + 32);
 }
 
 function convertToC(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#current-degrees");
-  temperatureElement.innerHTML = 19;
+  temperatureElement.innerHTML = celciusTemperature;
 }
+
+let celciusTemperature = null;
 
 let fTemp = document.querySelector("#f-temp");
 fTemp.addEventListener("click", convertToF);

@@ -1,9 +1,17 @@
 .card {
-  margin: 5% 15%;
+  margin: 5% auto 0 auto;
   color: #18cfcf;
   font-family: "Righteous", cursive;
-  max-width: 900px;
+  max-width: 1000px;
   border-radius: 10px;
+}
+
+#github-link {
+  margin: 0 auto;
+  font-family: "Righteous", cursive;
+  max-width: 1000px;
+  text-align: center;
+  color: #18cfcf;
 }
 
 div.card {
@@ -49,7 +57,7 @@ div.card {
 }
 
 #current-weather-icon {
-  padding: 0 70px;
+  padding: 30px 70px;
 }
 
 
@@ -102,6 +110,4 @@ i {
  20 font-size: px;
 }
 
-#github-link {
-  box-sizing: border-box;
-}
+
