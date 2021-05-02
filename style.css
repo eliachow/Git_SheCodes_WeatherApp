@@ -63,6 +63,11 @@ div.card {
   padding: 0 0 0 30px;
 }
 
+#precipitation {
+  font-size: 25px;
+  padding: 0 0 0 30px;
+}
+
 .hourly-icons {
   padding: 15px;
 }
