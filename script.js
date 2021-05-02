@@ -26,8 +26,11 @@ function displayWeatherCondition(response) {
   );
   document.querySelector("#current-weather-description").innerHTML =
     response.data.weather[0].main;
+
+  document.querySelector("#humidity-value").innerHTML =
+    response.data.main.humidity
   
-    document.querySelector("#wind-speed").innerHTML = 
+  document.querySelector("#wind-speed").innerHTML = 
     response.data.wind.speed
 }
 
