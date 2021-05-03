@@ -139,12 +139,8 @@ cTemp.addEventListener("click", convertToC);
 
 
 //5 day forecast
-searchCity("Vancouver");
-displayForecast();
-
 function displayForecast() {
   let forecastElement = document.querySelector("#five-day-forecast-data");
-
   let forecastHTML = "";
   let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
   days.forEach(function(day) {
@@ -160,6 +156,27 @@ function displayForecast() {
             `;
   forecastElement.innerHTML = forecastHTML;
   })
-  
 }
+
+//hourly forecast
+function displayHourlyForecast () {
+  let hourlyForecastElement = document.querySelector("#hourly-forecast");
+  let hourlyForecastHTML = "";
+  let hours = ["9:00am", "12:00pm", "3:00pm", "6:00pm", "9:00pm"];
+  hours.forEach(function(hour) {
+    hourlyForecastHTML = hourlyForecastHTML + `
+    <div class="col-sm">
+      <i class="fas fa-cloud-sun-rain"></i>
+      <br /> ${hour}
+      <br /> 5ᵒ
+    </div>
+  `
+  hourlyForecastElement.innerHTML = hourlyForecastHTML;
+  }) 
+}
+
+searchCity("Vancouver");
+displayForecast();
+displayHourlyForecast();
+
 
