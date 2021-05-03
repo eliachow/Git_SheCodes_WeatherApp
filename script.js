@@ -161,7 +161,7 @@ function displayForecast() {
 //hourly forecast
 function displayHourlyForecast () {
   let hourlyForecastElement = document.querySelector("#hourly-forecast");
-  let hourlyForecastHTML = "";
+  let hourlyForecastHTML = `<div class="row">`;
   let hours = ["9:00am", "12:00pm", "3:00pm", "6:00pm", "9:00pm"];
   hours.forEach(function(hour) {
     hourlyForecastHTML = hourlyForecastHTML + `
