@@ -17,6 +17,13 @@ function getCurrentLocation(event) {
 let currentLocationButton = document.querySelector("#current-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
+function getForecast(coordinates) {
+  let apiKey = "291d093572471cc9cd6958074405d546";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units-metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
 //Change city
 function displayWeatherCondition(response) {
   document.querySelector("#location").innerHTML = response.data.name;
@@ -39,6 +46,8 @@ function displayWeatherCondition(response) {
   
   document.querySelector("#wind-speed").innerHTML = 
     Math.round(response.data.wind.speed);
+
+    getForecast(response.data.coord);
 }
 
 function searchCity(city) {
@@ -139,7 +148,8 @@ cTemp.addEventListener("click", convertToC);
 
 
 //5 day forecast
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data);
   let forecastElement = document.querySelector("#five-day-forecast-data");
   let forecastHTML = "";
   let days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
@@ -176,7 +186,6 @@ function displayHourlyForecast () {
 }
 
 searchCity("Vancouver");
-displayForecast();
 displayHourlyForecast();
 
 
