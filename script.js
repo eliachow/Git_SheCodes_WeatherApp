@@ -22,7 +22,10 @@ function getForecast(coordinates) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
+  axios.get(apiUrl).then(displayHourlyForecast);
 }
+
+
 
 //Change city
 function displayWeatherCondition(response) {
@@ -47,7 +50,7 @@ function displayWeatherCondition(response) {
   document.querySelector("#wind-speed").innerHTML = 
     Math.round(response.data.wind.speed);
 
-    getForecast(response.data.coord);
+    getForecast(response.data.coord);  
 }
 
 function searchCity(city) {
@@ -189,7 +192,8 @@ function displayForecast(response) {
 }
 
 //hourly forecast
-function displayHourlyForecast () {
+function displayHourlyForecast (response) {
+  console.log(response.data.hourly);
   let hourlyForecastElement = document.querySelector("#hourly-forecast");
   let hourlyForecastHTML = `<div class="row">`;
   let hours = ["9:00am", "12:00pm", "3:00pm", "6:00pm", "9:00pm"];
@@ -206,6 +210,5 @@ function displayHourlyForecast () {
 }
 
 searchCity("Vancouver");
-displayHourlyForecast();
 
 
