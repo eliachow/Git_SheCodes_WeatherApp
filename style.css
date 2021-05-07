@@ -14,7 +14,7 @@
   color: #18cfcf;
 }
 
-div.card {
+#card-body {
   background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
 }
 
@@ -65,7 +65,7 @@ div.card {
 }
 
 #current-weather-icon {
-  padding: 30px 70px;
+  padding: 50px 70px;
 }
 
 
@@ -99,8 +99,8 @@ div.card {
   padding: 0 0 0 30px;
 }
 
-.hourly-icons {
-  padding: 15px;
+#hourly-icon {
+  max-width: 60px;
 }
 
 ul {
@@ -125,7 +125,11 @@ li.card {
 }
 
 i {
- 20 font-size: px;
+ font-size: 20px;
+}
+
+#forecast-weather-icon {
+  max-width: 60px;
 }
 
 

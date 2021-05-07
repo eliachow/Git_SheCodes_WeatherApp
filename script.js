@@ -156,7 +156,7 @@ cTemp.addEventListener("click", convertToC);
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return days[day];
 
 
@@ -173,18 +173,20 @@ function displayForecast(response) {
           {
     forecastHTML =  forecastHTML + 
     `
-               <ul>
-                    <li class="card">
-                        ${formatDay (forecastDay.dt)}
-                    ${index}
-                    <img 
-                    id="current-weather-icon" 
+             <ul>  
+               <li class="card" id="forecast-card">
+               <span class="weather-forecast-temperature-max" class="weather-forecast-temperature-min">
+               ${formatDay (forecastDay.dt)}
+                  ${index}  
+               <img 
+                    id="forecast-weather-icon" 
                     src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
                     >
-                    </img>
-                        <span class="weather-forecast-temperature-max">${Math.round(forecastDay.temp.max)}ᵒ</span> / <span class="weather-forecast-temperature-min">${Math.round(forecastDay.temp.min)}ᵒ</span>
-                    </li>
-                </ul>
+                  </img>
+                  ${Math.round(forecastDay.temp.max)}ᵒ / ${Math.round(forecastDay.temp.min)}ᵒ
+                  </span>
+                </li>
+              </ul> 
             `;
           }
   forecastElement.innerHTML = forecastHTML;
@@ -194,15 +196,20 @@ function displayForecast(response) {
 //hourly forecast
 function displayHourlyForecast (response) {
   console.log(response.data.hourly);
+  let hourlyForecast = response.data.hourly;
   let hourlyForecastElement = document.querySelector("#hourly-forecast");
   let hourlyForecastHTML = `<div class="row">`;
   let hours = ["9:00am", "12:00pm", "3:00pm", "6:00pm", "9:00pm"];
-  hours.forEach(function(hour) {
+  hourlyForecast.forEach(function(forecastHour) {
     hourlyForecastHTML = hourlyForecastHTML + `
     <div class="col-sm">
-      <i class="fas fa-cloud-sun-rain"></i>
-      <br /> ${hour}
-      <br /> 5ᵒ
+    <img 
+    id="hourly-icon" 
+    src="http://openweathermap.org/img/wn/${forecastHour.weather[0].icon}@2x.png"
+    >
+    </img>
+      <br /> ${forecastHour.dt}
+      <br /> ${Math.round(forecastHour.temp)}ᵒ
     </div>
   `
   hourlyForecastElement.innerHTML = hourlyForecastHTML;
