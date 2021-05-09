@@ -203,7 +203,7 @@ function displayHourlyForecast(){
     hourlyForecastHTML + `
     <div class="col-sm">
       <i class="fas fa-cloud-sun-rain"></i>
-      <br /> 9:00am
+      <br /> ${hour}
       <br /> 5ᵒ
     </div>
   `;
