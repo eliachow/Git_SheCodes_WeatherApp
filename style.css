@@ -132,4 +132,10 @@ i {
   max-width: 60px;
 }
 
+#forecast-info {
+  color: #18cfcf;
+  font-size: 20px;
+  font-family: "Righteous", cursive;
+}
+
 

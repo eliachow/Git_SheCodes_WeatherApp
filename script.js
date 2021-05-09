@@ -21,8 +21,10 @@ function getForecast(coordinates) {
   let apiKey = "291d093572471cc9cd6958074405d546";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   console.log(apiUrl);
+  let apiUrlHourly = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrlHourly);
   axios.get(apiUrl).then(displayForecast);
-  axios.get(apiUrl).then(displayHourlyForecast);
+  axios.get(apiUrlHourly).then(displayHourlyForecast);
 }
 
 
@@ -158,8 +160,6 @@ function formatDay(timestamp) {
   let day = date.getDay();
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return days[day];
-
-
 }
 
 //5 day forecast
@@ -175,7 +175,7 @@ function displayForecast(response) {
     `
              <ul>  
                <li class="card" id="forecast-card">
-               <span class="weather-forecast-temperature-max" class="weather-forecast-temperature-min">
+               <span class="weather-forecast-temperature-max" class="weather-forecast-temperature-min" id="forecast-info">
                ${formatDay (forecastDay.dt)}
                   ${index}  
                <img 
@@ -194,27 +194,27 @@ function displayForecast(response) {
 }
 
 //hourly forecast
-function displayHourlyForecast (response) {
-  console.log(response.data.hourly);
-  let hourlyForecast = response.data.hourly;
-  let hourlyForecastElement = document.querySelector("#hourly-forecast");
+function displayHourlyForecast(){
+  let hourlyForecstElement = document.querySelector("#hourly-forecast");
   let hourlyForecastHTML = `<div class="row">`;
   let hours = ["9:00am", "12:00pm", "3:00pm", "6:00pm", "9:00pm"];
-  hourlyForecast.forEach(function(forecastHour) {
-    hourlyForecastHTML = hourlyForecastHTML + `
+  hours.forEach(function(hour){
+    hourlyForecastHTML = 
+    hourlyForecastHTML + `
     <div class="col-sm">
-    <img 
-    id="hourly-icon" 
-    src="http://openweathermap.org/img/wn/${forecastHour.weather[0].icon}@2x.png"
-    >
-    </img>
-      <br /> ${forecastHour.dt}
-      <br /> ${Math.round(forecastHour.temp)}ᵒ
+      <i class="fas fa-cloud-sun-rain"></i>
+      <br /> 9:00am
+      <br /> 5ᵒ
     </div>
-  `
-  hourlyForecastElement.innerHTML = hourlyForecastHTML;
-  }) 
+  `;
+  })
+
+  hourlyForecastHTML = hourlyForecastHTML + `</div>`;
+  hourlyForecstElement.innerHTML = hourlyForecastHTML;
+  console.log(hourlyForecastHTML);
 }
+
+
 
 searchCity("Vancouver");
 
