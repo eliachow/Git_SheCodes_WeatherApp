@@ -21,12 +21,15 @@ function getForecast(coordinates) {
   let apiKey = "291d093572471cc9cd6958074405d546";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   console.log(apiUrl);
-  let apiUrlHourly = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  console.log(apiUrlHourly);
   axios.get(apiUrl).then(displayForecast);
-  axios.get(apiUrlHourly).then(displayHourlyForecast);
 }
 
+function getHourlyForecast(coordinates) {
+  let apiKey = "291d093572471cc9cd6958074405d546";
+  let apiUrlHourly = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrlHourly);
+  axios.get(apiUrlHourly).then(displayHourlyForecast);
+}
 
 
 //Change city
@@ -53,6 +56,7 @@ function displayWeatherCondition(response) {
     Math.round(response.data.wind.speed);
 
     getForecast(response.data.coord);  
+    getHourlyForecast(response.data.coord);
 }
 
 function searchCity(city) {
@@ -164,6 +168,7 @@ function formatDay(timestamp) {
 
 //5 day forecast
 function displayForecast(response) {
+  console.log(response.data.daily);
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#five-day-forecast-data");
   let forecastHTML = "";
@@ -176,8 +181,7 @@ function displayForecast(response) {
              <ul>  
                <li class="card" id="forecast-card">
                <span class="weather-forecast-temperature-max" class="weather-forecast-temperature-min" id="forecast-info">
-               ${formatDay (forecastDay.dt)}
-                  ${index}  
+               ${formatDay (forecastDay.dt)}  
                <img 
                     id="forecast-weather-icon" 
                     src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
@@ -194,19 +198,26 @@ function displayForecast(response) {
 }
 
 //hourly forecast
-function displayHourlyForecast(){
+function displayHourlyForecast(response){
+  console.log(response.data.list);
+  let hourlyForecast = response.data.list;
   let hourlyForecstElement = document.querySelector("#hourly-forecast");
   let hourlyForecastHTML = `<div class="row">`;
   let hours = ["9:00am", "12:00pm", "3:00pm", "6:00pm", "9:00pm"];
-  hours.forEach(function(hour){
+  hourlyForecast.forEach(function(forecastHour, index){
+    if (index <5) {
     hourlyForecastHTML = 
     hourlyForecastHTML + `
     <div class="col-sm">
-      <i class="fas fa-cloud-sun-rain"></i>
-      <br /> ${hour}
-      <br /> 5ᵒ
+      <img 
+        id="forecast-weather-icon" 
+        src="http://openweathermap.org/img/wn/${forecastHour.weather[0].icon}@2x.png">
+      </img>
+      <br /> ${forecastHour.dt_txt}
+      <br /> ${Math.round(forecastHour.main.temp)}ᵒ
     </div>
   `;
+  }
   })
 
   hourlyForecastHTML = hourlyForecastHTML + `</div>`;
