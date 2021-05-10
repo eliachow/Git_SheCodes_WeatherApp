@@ -19,7 +19,7 @@
 }
 
 #search-form {
-  padding: 30px;
+  padding: 50px 30px 30px 70px;
 }
 
 #search-box {
@@ -50,18 +50,18 @@
 }
 
 #location {
-  padding: 0 50px;
+  padding: 0 50px 0 70px;
   font-size: 60px;
 }
 
 #current-date {
   font-size: 20px;
-  padding: 0 50px;
+  padding: 0 50px 0 70px;
 }
 
 #current-time {
   font-size: 20px;
-  padding: 0 50px;
+  padding: 0 50px 0 70px;
 }
 
 #current-weather-icon {
@@ -117,16 +117,14 @@ li.card {
 
 .hourly-forecast-all {
   text-align: center;
-  padding: 0 0 0 50px;
+  padding: 0 0 0 70px;
 }
 
 .hourly-forecast-header {
   text-align: left;
 }
 
-i {
- font-size: 20px;
-}
+
 
 #forecast-weather-icon {
   max-width: 60px;
@@ -138,8 +136,8 @@ i {
   font-family: "Righteous", cursive;
 }
 
-#hourly-time {
-  color: red;
+#forecast {
+  padding: 0px 70px 20px 70px;
 }
 
 
