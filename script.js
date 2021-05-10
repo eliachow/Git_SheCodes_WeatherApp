@@ -166,6 +166,11 @@ function formatDay(timestamp) {
   return days[day];
 }
 
+function formatHours(timestamp) {
+  let time = new Date(timestamp);
+  return time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+}
+
 //5 day forecast
 function displayForecast(response) {
   console.log(response.data.daily);
@@ -213,7 +218,7 @@ function displayHourlyForecast(response){
         id="forecast-weather-icon" 
         src="http://openweathermap.org/img/wn/${forecastHour.weather[0].icon}@2x.png">
       </img>
-      <br /> ${forecastHour.dt_txt}
+      <br /> ${formatHours(forecastHour.dt * 1000)}
       <br /> ${Math.round(forecastHour.main.temp)}ᵒ
     </div>
   `;
