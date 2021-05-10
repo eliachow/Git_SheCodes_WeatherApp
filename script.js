@@ -218,8 +218,8 @@ function displayHourlyForecast(response){
         id="forecast-weather-icon" 
         src="http://openweathermap.org/img/wn/${forecastHour.weather[0].icon}@2x.png">
       </img>
-      <br /> ${formatHours(forecastHour.dt * 1000)}
-      <br /> ${Math.round(forecastHour.main.temp)}ᵒ
+      <span>${formatHours(forecastHour.dt * 1000)}</span>
+      <div>${Math.round(forecastHour.main.temp)}ᵒ</div>
     </div>
   `;
   }
