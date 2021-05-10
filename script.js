@@ -192,7 +192,7 @@ function displayForecast(response) {
                     src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
                     >
                   </img>
-                  ${Math.round(forecastDay.temp.max)}ᵒ / ${Math.round(forecastDay.temp.min)}ᵒ
+                  ${Math.round(forecastDay.temp.max)}ᵒ/${Math.round(forecastDay.temp.min)}ᵒ
                   </span>
                 </li>
               </ul> 
@@ -208,7 +208,6 @@ function displayHourlyForecast(response){
   let hourlyForecast = response.data.list;
   let hourlyForecstElement = document.querySelector("#hourly-forecast");
   let hourlyForecastHTML = `<div class="row">`;
-  let hours = ["9:00am", "12:00pm", "3:00pm", "6:00pm", "9:00pm"];
   hourlyForecast.forEach(function(forecastHour, index){
     if (index <5) {
     hourlyForecastHTML = 
